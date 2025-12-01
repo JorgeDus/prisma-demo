@@ -130,14 +130,41 @@ export default async function PerfilPage({ params }: { params: Promise<{ id: str
 
             {/* Skills Card */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 animate-fade-in delay-200">
-              <h3 className="font-bold text-lg mb-3">Skills</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                <span className="text-purple-600">⚡</span>
+                Skills
+              </h3>
+              <div className="space-y-3">
                 {estudiante.skills.map((skill, idx) => (
-                  <span
+                  <div key={idx} className="border-l-2 border-purple-200 pl-3 hover:border-purple-400 transition-colors">
+                    <div className="font-medium text-gray-900 text-sm">
+                      {skill.nombre}
+                    </div>
+                    {skill.proyectos && skill.proyectos.length > 0 && (
+                      <div className="text-xs text-gray-600 mt-1">
+                        Usado en: {skill.proyectos.join(', ')}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Intereses Card - NUEVO */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 animate-fade-in delay-250">
+              <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                <span className="text-purple-600">💡</span>
+                Intereses
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {estudiante.intereses?.map((interes, idx) => (
+                  <div
                     key={idx}
-                    className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-lg text-sm font-medium border border-purple-100 hover:bg-purple-100 hover:scale-105 transition-all cursor-default">
-                    {skill}
-                  </span>
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full text-sm text-gray-700 border border-purple-100 hover:shadow-md transition-all"
+                  >
+                    <span className="text-base">{interes.icon}</span>
+                    <span className="font-medium">{interes.nombre}</span>
+                  </div>
                 ))}
               </div>
             </div>

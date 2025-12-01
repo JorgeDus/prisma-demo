@@ -64,7 +64,7 @@ export default function PerfilesPage() {
                         key={idx}
                         className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full"
                       >
-                        {skill}
+                        {skill.nombre}
                       </span>
                     ))}
                     {estudiante.skills.length > 3 && (

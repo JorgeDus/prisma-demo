@@ -1,24 +1,16 @@
 // types/estudiante.ts
 
-export type Estudiante = {
-  id: number
+export interface Skill {
   nombre: string
-  carrera: string
-  universidad: string
-  año: number
-  foto: string
-  bio: string
-  email: string
-  skills: string[]
-  links: {
-    github?: string
-    linkedin?: string
-    portfolio?: string
-  }
-  proyectos: Proyecto[]
+  proyectos: string[]
 }
 
-export type Proyecto = {
+export interface Interes {
+  nombre: string
+  icon: string
+}
+
+export interface Proyecto {
   id: number
   titulo: string
   descripcion: string
@@ -29,4 +21,23 @@ export type Proyecto = {
   github?: string
   demo?: string
   destacado: boolean
+}
+
+export interface Estudiante {
+  id: number
+  nombre: string
+  carrera: string
+  universidad: string
+  año: number
+  foto: string
+  bio: string
+  email: string
+  skills: Skill[]           // CAMBIADO: de string[] a Skill[]
+  intereses: Interes[]      // NUEVO
+  links: {
+    github?: string
+    linkedin?: string
+    portfolio?: string
+  }
+  proyectos: Proyecto[]
 }

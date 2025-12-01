@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700 gradient-animated flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-gray-400 to-purple-700 gradient-animated flex items-center justify-center p-4">
       <div className="text-center text-white max-w-4xl">
         <h1 className="text-6xl font-bold mb-6 animate-fade-in">
           PRISMA
