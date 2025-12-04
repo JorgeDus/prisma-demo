@@ -86,46 +86,44 @@ export default async function PerfilPage({ params }: { params: Promise<{ id: str
         </div>
       </div>
 
-      {/* Main Content: 2 Columnas */}
+      {/* Main Content: 3 Columnas */}
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-          {/* SIDEBAR (4 columnas) */}
-          <aside className="lg:col-span-4 space-y-6">
+          {/* SIDEBAR (3 columnas = 25%) */}
+          <aside className="lg:col-span-3 space-y-6">
 
-            {/* Stats Card */}
+            {/* About Card & Stats */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 animate-fade-in">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-gray-900">
-                    {estudiante.proyectos.length}
-                  </div>
-                  <div className="text-sm text-gray-600 mt-1">Proyectos</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-gray-900">
-                    {estudiante.skills.length}
-                  </div>
-                  <div className="text-sm text-gray-600 mt-1">Skills</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-gray-900">
-                    {estudiante.año}
-                  </div>
-                  <div className="text-sm text-gray-600 mt-1">Año</div>
-                </div>
-              </div>
-            </div>
-
-            {/* About Card */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 animate-fade-in delay-100">
               <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
                 <GraduationCap size={20} className="text-purple-600" />
                 Sobre mí
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-700 text-sm leading-relaxed mb-6">
                 {estudiante.bio}
               </p>
+
+              {/* Stats integrated */}
+              <div className="border-t pt-6 grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">
+                    {estudiante.proyectos.length}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Proyectos</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">
+                    {estudiante.skills.length}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Skills</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">
+                    {estudiante.año}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Año</div>
+                </div>
+              </div>
             </div>
 
             {/* Skills Card */}
@@ -235,8 +233,8 @@ export default async function PerfilPage({ params }: { params: Promise<{ id: str
 
           </aside>
 
-          {/* MAIN CONTENT (8 columnas) */}
-          <main className="lg:col-span-8 space-y-8">
+          {/* MAIN CONTENT - Proyectos (6 columnas = 50%) */}
+          <main className="lg:col-span-6 space-y-8">
 
             {/* Proyectos Destacados */}
             {proyectosDestacados.length > 0 && (
@@ -253,11 +251,11 @@ export default async function PerfilPage({ params }: { params: Promise<{ id: str
                     >
                       {/* Imagen Hero */}
                       <div className="h-80 bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
-                         <img
-                            src={proyecto.imagenPortada}
-                            alt={proyecto.titulo}
-                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                          />
+                        <img
+                          src={proyecto.imagenPortada}
+                          alt={proyecto.titulo}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        />
                       </div>
 
                       {/* Content */}
@@ -405,6 +403,78 @@ export default async function PerfilPage({ params }: { params: Promise<{ id: str
             )}
 
           </main>
+
+          {/* MI VITRINA (3 columnas = 25%) - STICKY */}
+          <aside className="lg:col-span-3">
+            <div className="sticky top-[140px] space-y-6">
+
+              {/* Header Vitrina */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                  <span className="text-yellow-500">🏆</span>
+                  Mi Vitrina
+                </h3>
+
+                {/* Testimonios */}
+                <div className="space-y-4">
+                  {estudiante.vitrina?.testimonios?.map((testimonio, idx) => (
+                    <div
+                      key={idx}
+                      className="border-l-2 border-purple-300 pl-3"
+                    >
+                      <p className="text-sm text-gray-700 italic leading-relaxed">
+                        "{testimonio.comentario}"
+                      </p>
+                      <div className="mt-2">
+                        <p className="text-xs font-semibold text-gray-900">
+                          {testimonio.autor}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {testimonio.cargo}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Reconocimientos */}
+              {estudiante.vitrina?.reconocimientos &&
+               estudiante.vitrina.reconocimientos.length > 0 && (
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                    <span className="text-purple-600">🎖️</span>
+                    Reconocimientos
+                  </h3>
+                  <div className="space-y-3">
+                    {estudiante.vitrina.reconocimientos.map((rec, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-2"
+                      >
+                        <span className="text-lg">{rec.icon}</span>
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">
+                            {rec.titulo}
+                          </p>
+                          {rec.descripcion && (
+                            <p className="text-xs text-gray-500">
+                              {rec.descripcion}
+                            </p>
+                          )}
+                          <p className="text-xs text-gray-400 mt-1">
+                            {rec.fecha}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </aside>
+
         </div>
       </div>
     </div>

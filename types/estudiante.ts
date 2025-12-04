@@ -23,6 +23,24 @@ export interface Proyecto {
   destacado: boolean
 }
 
+export interface Testimonio {
+  comentario: string
+  autor: string
+  cargo: string
+}
+
+export interface Reconocimiento {
+  titulo: string
+  descripcion?: string
+  fecha: string
+  icon: string
+}
+
+export interface Vitrina {
+  testimonios: Testimonio[]
+  reconocimientos: Reconocimiento[]
+}
+
 export interface Estudiante {
   id: number
   nombre: string
@@ -40,4 +58,5 @@ export interface Estudiante {
     portfolio?: string
   }
   proyectos: Proyecto[]
+  vitrina?:Vitrina
 }

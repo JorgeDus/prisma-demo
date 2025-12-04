@@ -46,6 +46,40 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Diseño UX", icon: "🎨" },
       { nombre: "Café de especialidad", icon: "☕" }
     ],
+    vitrina: {
+      testimonios: [
+        {
+          comentario: "María demostró un liderazgo técnico excepcional en el proyecto de gestión académica. Su capacidad para resolver problemas complejos y guiar al equipo fue clave para el éxito.",
+          autor: "Prof. Juan Pérez",
+          cargo: "Docente Ingeniería de Software"
+        },
+        {
+          comentario: "Una de las estudiantes más destacadas de su generación. Combina habilidades técnicas sólidas con excelente comunicación y trabajo en equipo.",
+          autor: "Dra. Ana López",
+          cargo: "Directora de Carrera"
+        }
+      ],
+      reconocimientos: [
+        {
+          titulo: "1er Lugar - Hackathon UC 2024",
+          descripcion: "Categoría Impacto Social",
+          fecha: "Octubre 2024",
+          icon: "🥇"
+        },
+        {
+          titulo: "Beca Excelencia Académica",
+          descripcion: "Top 5% de la generación",
+          fecha: "2023-2024",
+          icon: "📜"
+        },
+        {
+          titulo: "Ayudante Destacada",
+          descripcion: "Curso Desarrollo Web",
+          fecha: "2024",
+          icon: "⭐"
+        }
+      ]
+    },
     links: {
       github: "https://github.com/mariagonzalez",
       linkedin: "https://linkedin.com/in/mariagonzalez",
@@ -136,6 +170,40 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Ciclismo", icon: "🚴" },
       { nombre: "Ajedrez", icon: "♟️" }
     ],
+    vitrina: {
+      testimonios: [
+        {
+          comentario: "Carlos desarrolló un modelo predictivo que superó nuestras expectativas. Su rigurosidad metodológica y capacidad de comunicar resultados técnicos a audiencias no técnicas es excepcional.",
+          autor: "Prof. Roberto Fernández",
+          cargo: "Director Laboratorio de Machine Learning"
+        },
+        {
+          comentario: "Un estudiante que combina curiosidad científica con impacto real. Su trabajo en deserción universitaria ya está siendo implementado por la dirección de pregrado.",
+          autor: "Dra. Carmen Valdés",
+          cargo: "Coordinadora Área Data Science"
+        }
+      ],
+      reconocimientos: [
+        {
+          titulo: "Mejor Paper Estudiantil",
+          descripcion: "Congreso Chileno de Inteligencia Artificial",
+          fecha: "Septiembre 2024",
+          icon: "🥇"
+        },
+        {
+          titulo: "Google Developer Scholarship",
+          descripcion: "Machine Learning Bootcamp",
+          fecha: "2024",
+          icon: "🎓"
+        },
+        {
+          titulo: "Pasantía de Investigación",
+          descripcion: "Centro de Modelamiento Matemático",
+          fecha: "Verano 2024",
+          icon: "🔬"
+        }
+      ]
+    },
     links: {
       github: "https://github.com/carlosrojas",
       linkedin: "https://linkedin.com/in/carlosrojas",
@@ -211,6 +279,40 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Fotografía", icon: "📷" },
       { nombre: "Yoga", icon: "🧘♀️" }
     ],
+    vitrina: {
+      testimonios: [
+        {
+          comentario: "Sofía tiene un ojo excepcional para el detalle y una empatía genuina con los usuarios. Su rediseño de la app de transporte fue adoptado como caso de estudio en el curso.",
+          autor: "Prof. Francisca Morales",
+          cargo: "Docente Diseño de Interacción"
+        },
+        {
+          comentario: "Destaca por su capacidad de fundamentar cada decisión de diseño con investigación sólida. Una diseñadora que piensa sistémicamente.",
+          autor: "Alejandro Reyes",
+          cargo: "Director Escuela de Diseño UDP"
+        }
+      ],
+      reconocimientos: [
+        {
+          titulo: "Mención Honrosa - Bienal Diseño Chile",
+          descripcion: "Categoría Diseño de Servicios",
+          fecha: "Noviembre 2024",
+          icon: "🏆"
+        },
+        {
+          titulo: "Certificación Google UX Design",
+          descripcion: "Professional Certificate",
+          fecha: "2024",
+          icon: "📜"
+        },
+        {
+          titulo: "Práctica Profesional",
+          descripcion: "Estudio de diseño Continuum",
+          fecha: "Verano 2024",
+          icon: "💼"
+        }
+      ]
+    },
     links: {
       linkedin: "https://linkedin.com/in/sofiatorres",
       portfolio: "https://sofiatorres.design"
@@ -285,6 +387,40 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Podcasting", icon: "🎙️" },
       { nombre: "Senderismo", icon: "🥾" }
     ],
+    vitrina: {
+      testimonios: [
+        {
+          comentario: "Valentina representa el futuro del periodismo: rigurosa en la investigación, innovadora en formatos y comprometida con el impacto social. Su reportaje sobre minería es trabajo de nivel profesional.",
+          autor: "Prof. Mónica Poblete",
+          cargo: "Directora Escuela de Periodismo UC"
+        },
+        {
+          comentario: "Su capacidad de verificación de datos y metodología de fact-checking estableció un nuevo estándar en nuestros cursos. Ética impecable.",
+          autor: "Cristián Leighton",
+          cargo: "Editor Revista Universitaria"
+        }
+      ],
+      reconocimientos: [
+        {
+          titulo: "Premio Periodismo Joven",
+          descripcion: "Colegio de Periodistas de Chile",
+          fecha: "Octubre 2024",
+          icon: "🏆"
+        },
+        {
+          titulo: "Selección Festival FIDOCS",
+          descripcion: "Documental Estudiantes Migrantes",
+          fecha: "2024",
+          icon: "🎬"
+        },
+        {
+          titulo: "Beca Reporteros Sin Fronteras",
+          descripcion: "Taller Internacional de Verificación",
+          fecha: "2024",
+          icon: "🌍"
+        }
+      ]
+    },
     links: {
       linkedin: "https://linkedin.com/in/valentinamunoz",
       portfolio: "https://valentinamunoz.journoportfolio.com"
@@ -373,6 +509,40 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Fotografía Arquitectónica", icon: "📸" },
       { nombre: "Carpintería", icon: "🪵" }
     ],
+      vitrina: {
+      testimonios: [
+        {
+          comentario: "Martín combina sensibilidad social con excelencia técnica. Su proyecto de vivienda modular demuestra que es posible hacer arquitectura de calidad accesible para todos.",
+          autor: "Prof. Alejandro Aravena",
+          cargo: "Docente Taller de Diseño"
+        },
+        {
+          comentario: "Un estudiante que entiende la arquitectura como herramienta de transformación social. Su metodología participativa con comunidades es ejemplar.",
+          autor: "Dra. Paula Orta",
+          cargo: "Coordinadora Área Urbanismo"
+        }
+      ],
+      reconocimientos: [
+        {
+          titulo: "1er Lugar Concurso CAP",
+          descripcion: "Categoría Vivienda Social",
+          fecha: "Agosto 2024",
+          icon: "🥇"
+        },
+        {
+          titulo: "Publicación Revista ARQ",
+          descripcion: "Artículo sobre diseño bioclimático",
+          fecha: "2024",
+          icon: "📰"
+        },
+        {
+          titulo: "Taller Internacional",
+          descripcion: "ETH Zürich - Sustainable Housing",
+          fecha: "Julio 2024",
+          icon: "🌍"
+        }
+      ]
+    },
     links: {
       linkedin: "https://linkedin.com/in/martinsilva",
       portfolio: "https://martinsilva.com"
@@ -451,6 +621,40 @@ export const estudiantes: Estudiante[] = [
         proyectos: ["Paper Ley de Migración"]
       }
     ],
+      vitrina: {
+      testimonios: [
+        {
+          comentario: "Diego representa lo mejor de nuestra facultad: brillantez académica puesta al servicio de quienes más lo necesitan. Su trabajo en la clínica jurídica ha cambiado vidas.",
+          autor: "Prof. María Elena Santibáñez",
+          cargo: "Directora Clínica Jurídica UChile"
+        },
+        {
+          comentario: "Un futuro litigante excepcional. Su capacidad de argumentación y preparación de casos está muy por sobre su nivel académico.",
+          autor: "Dr. Cristián Maturana",
+          cargo: "Docente Derecho Procesal"
+        }
+      ],
+      reconocimientos: [
+        {
+          titulo: "1er Lugar Torneo de Litigación",
+          descripcion: "Competencia Nacional Universitaria",
+          fecha: "Septiembre 2024",
+          icon: "🥇"
+        },
+        {
+          titulo: "Publicación Revista de Derecho",
+          descripcion: "Paper sobre derechos laborales migrantes",
+          fecha: "2024",
+          icon: "📚"
+        },
+        {
+          titulo: "Beca Pro Bono",
+          descripcion: "Programa de Acceso a la Justicia",
+          fecha: "2023-2024",
+          icon: "⚖️"
+        }
+      ]
+    },
     intereses: [
       { nombre: "Derechos Humanos", icon: "⚖️" },
       { nombre: "Legal Tech", icon: "💻" },
