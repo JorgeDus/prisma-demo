@@ -9,7 +9,10 @@ export const estudiantes: Estudiante[] = [
     carrera: "Ingeniería Civil Informática",
     universidad: "Universidad de Chile",
     año: 3,
-    foto: "/avatars/maria.jpg",
+    foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=60",
+    coverImage: "https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?w=1200",
+    status: "busca_practica",
+    colaboraciones: 2,
     bio: "Desarrolladora full-stack apasionada por crear experiencias web intuitivas. Me especializo en React y Node.js, y disfruto resolviendo problemas complejos con soluciones elegantes.",
     email: "maria.gonzalez@uchile.cl",
     skills: [
@@ -80,6 +83,14 @@ export const estudiantes: Estudiante[] = [
         }
       ]
     },
+    trayectoria: [
+      { año: 2024, titulo: "1er Lugar - Hackathon UC 2024", descripcion: "Categoría Impacto Social", fecha: "Octubre 2024", icon: "🥇", tipo: "logro" },
+      { año: 2024, titulo: "Ayudante Curso Desarrollo Web", descripcion: "Prof. Juan Pérez · 40 estudiantes", fecha: "Marzo - Julio 2024", icon: "👩‍🏫", tipo: "academico" },
+      { año: 2024, titulo: "Intercambio UC Berkeley", descripcion: "Summer Program - Computer Science", fecha: "Enero 2024", icon: "🌎", tipo: "intercambio" },
+      { año: 2023, titulo: "Beca Excelencia Académica", descripcion: "Top 5% de la generación", fecha: "2023-2024", icon: "📜", tipo: "logro" },
+      { año: 2023, titulo: "Delegada Centro de Estudiantes", descripcion: "Representante de generación", fecha: "2023", icon: "🏛️", tipo: "voluntariado" },
+      { año: 2022, titulo: "Inicio Ingeniería Civil Informática", descripcion: "Universidad Católica de Chile", fecha: "Marzo 2022", icon: "🎓", tipo: "academico" }
+    ],
     links: {
       github: "https://github.com/mariagonzalez",
       linkedin: "https://linkedin.com/in/mariagonzalez",
@@ -99,7 +110,12 @@ export const estudiantes: Estudiante[] = [
         fecha: "2024-05",
         github: "https://github.com/mariagonzalez/sistema-academico",
         demo: "https://sistema-academico-demo.vercel.app",
-        destacado: true
+        destacado: true,
+        colaboradores: [
+          { nombre: "Carlos Rojas", rol: "Backend Developer" },
+          { nombre: "Sofía Torres", rol: "UX Designer" },
+          { nombre: "Diego Silva", rol: "QA Testing" }
+        ]
       },
       {
         id: 2,
@@ -134,7 +150,10 @@ export const estudiantes: Estudiante[] = [
     carrera: "Ingeniería en Informática",
     universidad: "Pontificia Universidad Católica",
     año: 4,
-    foto: "/avatars/carlos.jpg",
+    foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=60",
+    coverImage: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200",
+    status: "disponible",
+    colaboraciones: 3,
     bio: "Data scientist en formación con fuerte background en machine learning y análisis de datos. Me interesa aplicar IA para resolver problemas sociales y mejorar la toma de decisiones basada en datos.",
     email: "carlos.rojas@uc.cl",
     skills: [
@@ -204,6 +223,14 @@ export const estudiantes: Estudiante[] = [
         }
       ]
     },
+    trayectoria: [
+      { año: 2024, titulo: "Mejor Paper Estudiantil", descripcion: "Congreso Chileno de Inteligencia Artificial", fecha: "Septiembre 2024", icon: "🥇", tipo: "logro" },
+      { año: 2024, titulo: "Pasantía Centro de Modelamiento Matemático", descripcion: "Investigación en predicción de deserción universitaria", fecha: "Verano 2024", icon: "🔬", tipo: "laboral" },
+      { año: 2024, titulo: "Google Developer Scholarship", descripcion: "Machine Learning Bootcamp", fecha: "2024", icon: "🎓", tipo: "logro" },
+      { año: 2023, titulo: "Certificación TensorFlow Developer", descripcion: "Google Cloud Certification", fecha: "Diciembre 2023", icon: "📜", tipo: "academico" },
+      { año: 2023, titulo: "Ayudante Curso Machine Learning", descripcion: "Prof. Roberto Mendoza · 60 estudiantes", fecha: "Agosto - Diciembre 2023", icon: "👨‍🏫", tipo: "academico" },
+      { año: 2022, titulo: "Inicio Ingeniería en Informática", descripcion: "Universidad de Chile", fecha: "Marzo 2022", icon: "🎓", tipo: "academico" }
+    ],
     links: {
       github: "https://github.com/carlosrojas",
       linkedin: "https://linkedin.com/in/carlosrojas",
@@ -243,7 +270,10 @@ export const estudiantes: Estudiante[] = [
     carrera: "Diseño UX/UI",
     universidad: "Universidad Diego Portales",
     año: 2,
-    foto: "/avatars/sofia.jpg",
+    foto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&auto=format&fit=crop&q=60",
+    coverImage: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200",
+    status: "busca_practica",
+    colaboraciones: 1,
     bio: "Diseñadora UX/UI enfocada en crear experiencias digitales centradas en el usuario. Me apasiona combinar investigación, diseño visual y prototipado para resolver problemas reales de las personas.",
     email: "sofia.torres@mail.udp.cl",
     skills: [
@@ -313,6 +343,13 @@ export const estudiantes: Estudiante[] = [
         }
       ]
     },
+    trayectoria: [
+      { año: 2024, titulo: "Finalista Design Awards 2024", descripcion: "Categoría App Móvil", fecha: "Agosto 2024", icon: "🏆", tipo: "logro" },
+      { año: 2024, titulo: "Pasantía UX/UI en Start-up", descripcion: "Diseño de sistema de diseño y componentes", fecha: "Enero - Marzo 2024", icon: "🎨", tipo: "laboral" },
+      { año: 2023, titulo: "Workshop Design Thinking", descripcion: "Facilitadora para alumnos de primer año", fecha: "Noviembre 2023", icon: "👩‍🏫", tipo: "voluntariado" },
+      { año: 2023, titulo: "Certificación Google UX", descripcion: "Professional Certificate", fecha: "Julio 2023", icon: "📜", tipo: "academico" },
+      { año: 2022, titulo: "Inicio Diseño", descripcion: "Universidad Diego Portales", fecha: "Marzo 2022", icon: "🎓", tipo: "academico" }
+    ],
     links: {
       linkedin: "https://linkedin.com/in/sofiatorres",
       portfolio: "https://sofiatorres.design"
@@ -345,18 +382,21 @@ export const estudiantes: Estudiante[] = [
       }
     ]
   },
-{
+  {
     id: 4,
     nombre: "Valentina Muñoz",
     carrera: "Periodismo",
     universidad: "Pontificia Universidad Católica",
     año: 3,
-    foto: "/avatars/valentina.jpg",
+    foto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&auto=format&fit=crop&q=60",
+    coverImage: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200",
+    status: "trabajando",
+    colaboraciones: 4,
     bio: "Periodista multimedia especializada en investigación y verificación de datos. Me apasiona el periodismo de impacto social y contar historias que generen cambio real en las comunidades.",
     email: "valentina.munoz@uc.cl",
     skills: [
       {
-        nombre: "Investigación Periodística",
+        nombre: "Investigación",
         proyectos: ["Reportaje Minería en el Norte", "Fact-checking Elecciones 2024"]
       },
       {
@@ -421,6 +461,13 @@ export const estudiantes: Estudiante[] = [
         }
       ]
     },
+    trayectoria: [
+      { año: 2024, titulo: "Editora Jefe Revista Universitaria", descripcion: "Coordinación de equipo de 15 redactores", fecha: "Marzo 2024 - Presente", icon: "📰", tipo: "laboral" },
+      { año: 2024, titulo: "Pasantía en Diario Nacional", descripcion: "Sección Crónica y Reportajes", fecha: "Verano 2024", icon: "🗞️", tipo: "laboral" },
+      { año: 2023, titulo: "Premio Periodismo de Datos", descripcion: "Mejor reportaje multimedia estudiantil", fecha: "Diciembre 2023", icon: "🏆", tipo: "logro" },
+      { año: 2023, titulo: "Cobertura Juegos Panamericanos", descripcion: "Voluntaria de prensa", fecha: "Octubre 2023", icon: "🎤", tipo: "voluntariado" },
+      { año: 2022, titulo: "Inicio Periodismo", descripcion: "Universidad de Chile", fecha: "Marzo 2022", icon: "🎓", tipo: "academico" }
+    ],
     links: {
       linkedin: "https://linkedin.com/in/valentinamunoz",
       portfolio: "https://valentinamunoz.journoportfolio.com"
@@ -473,7 +520,10 @@ export const estudiantes: Estudiante[] = [
     carrera: "Arquitectura",
     universidad: "Universidad de Chile",
     año: 4,
-    foto: "/avatars/martin.jpg",
+    foto: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&auto=format&fit=crop&q=60",
+    coverImage: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=1200",
+    status: "disponible",
+    colaboraciones: 2,
     bio: "Arquitecto en formación enfocado en diseño sostenible y espacios públicos inclusivos. Me apasiona crear arquitectura que mejore la calidad de vida de las comunidades y respete el medio ambiente.",
     email: "martin.silva@uchile.cl",
     skills: [
@@ -509,7 +559,7 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Fotografía Arquitectónica", icon: "📸" },
       { nombre: "Carpintería", icon: "🪵" }
     ],
-      vitrina: {
+    vitrina: {
       testimonios: [
         {
           comentario: "Martín combina sensibilidad social con excelencia técnica. Su proyecto de vivienda modular demuestra que es posible hacer arquitectura de calidad accesible para todos.",
@@ -543,6 +593,13 @@ export const estudiantes: Estudiante[] = [
         }
       ]
     },
+    trayectoria: [
+      { año: 2024, titulo: "1er Lugar Concurso CAP", descripcion: "Categoría Vivienda Social", fecha: "Agosto 2024", icon: "🥇", tipo: "logro" },
+      { año: 2024, titulo: "Taller Internacional ETH Zürich", descripcion: "Sustainable Housing Workshop", fecha: "Julio 2024", icon: "🌍", tipo: "intercambio" },
+      { año: 2023, titulo: "Ayudante Taller Diseño", descripcion: "Prof. Alejandro Aravena", fecha: "Marzo - Diciembre 2023", icon: "📐", tipo: "academico" },
+      { año: 2023, titulo: "Práctica Oficina Arquitectura", descripcion: "Elemental", fecha: "Verano 2023", icon: "🏗️", tipo: "laboral" },
+      { año: 2021, titulo: "Inicio Arquitectura", descripcion: "Universidad de Chile", fecha: "Marzo 2021", icon: "🎓", tipo: "academico" }
+    ],
     links: {
       linkedin: "https://linkedin.com/in/martinsilva",
       portfolio: "https://martinsilva.com"
@@ -592,7 +649,10 @@ export const estudiantes: Estudiante[] = [
     carrera: "Derecho",
     universidad: "Universidad de Chile",
     año: 4,
-    foto: "/avatars/diego.jpg",
+    foto: "https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=800&auto=format&fit=crop&q=60",
+    coverImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200",
+    status: "busca_practica",
+    colaboraciones: 4,
     bio: "Estudiante de derecho enfocado en derechos laborales y humanos. Me apasiona usar el derecho como herramienta de cambio social y defender a quienes más lo necesitan. Experiencia en clínicas jurídicas y litigación pro bono.",
     email: "diego.ramirez@uchile.cl",
     skills: [
@@ -621,7 +681,7 @@ export const estudiantes: Estudiante[] = [
         proyectos: ["Paper Ley de Migración"]
       }
     ],
-      vitrina: {
+    vitrina: {
       testimonios: [
         {
           comentario: "Diego representa lo mejor de nuestra facultad: brillantez académica puesta al servicio de quienes más lo necesitan. Su trabajo en la clínica jurídica ha cambiado vidas.",
@@ -661,6 +721,13 @@ export const estudiantes: Estudiante[] = [
       { nombre: "Derecho Ambiental", icon: "🌍" },
       { nombre: "Debate", icon: "🎤" },
       { nombre: "Escalada", icon: "🧗" }
+    ],
+    trayectoria: [
+      { año: 2024, titulo: "Mejor Orador Torneo Debate", descripcion: "Competencia Nacional Universitaria", fecha: "Septiembre 2024", icon: "🥇", tipo: "logro" },
+      { año: 2024, titulo: "Pasantía Corte Suprema", descripcion: "Dirección de Estudios", fecha: "Verano 2024", icon: "⚖️", tipo: "laboral" },
+      { año: 2023, titulo: "Ayudante Derecho Constitucional", descripcion: "Prof. Claudia Soto", fecha: "Marzo - Diciembre 2023", icon: "👨‍🏫", tipo: "academico" },
+      { año: 2023, titulo: "Voluntariado Clínica Jurídica", descripcion: "Asesoría a migrantes", fecha: "2023", icon: "🤝", tipo: "voluntariado" },
+      { año: 2021, titulo: "Inicio Derecho", descripcion: "Universidad de Chile", fecha: "Marzo 2021", icon: "🎓", tipo: "academico" }
     ],
     links: {
       linkedin: "https://linkedin.com/in/diegoramirez",
