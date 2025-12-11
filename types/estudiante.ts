@@ -27,6 +27,7 @@ export interface Proyecto {
   demo?: string
   destacado: boolean
   colaboradores?: Colaborador[]
+  caracteristicas?: string[]  // Características específicas del proyecto para "El proyecto incluyó:"
 }
 
 export interface Testimonio {
@@ -58,6 +59,14 @@ export interface Hito {
 
 export type EstudianteStatus = 'busca_practica' | 'disponible' | 'trabajando' | 'no_disponible'
 
+export interface CatedraDestacada {
+  curso: string
+  profesor: string
+  institucion: string
+  distincion?: string  // Ej: "Nota: 7.0" o "Top 1%"
+  semestre?: string    // Ej: "2024-1"
+}
+
 export interface Estudiante {
   id: number
   nombre: string
@@ -73,6 +82,7 @@ export interface Estudiante {
   intereses: Interes[]
   colaboraciones?: number   // NUEVO: Número de colaboraciones
   trayectoria?: Hito[]      // NUEVO: Timeline de hitos
+  catedrasDestacadas?: CatedraDestacada[]  // NUEVO: Cursos destacados con profesores relevantes
   links: {
     github?: string
     linkedin?: string

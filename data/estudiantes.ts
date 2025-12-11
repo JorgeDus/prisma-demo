@@ -115,6 +115,13 @@ export const estudiantes: Estudiante[] = [
           { nombre: "Carlos Rojas", rol: "Backend Developer" },
           { nombre: "Sofía Torres", rol: "UX Designer" },
           { nombre: "Diego Silva", rol: "QA Testing" }
+        ],
+        caracteristicas: [
+          "Sistema de autenticación con roles (estudiante, profesor, admin)",
+          "Dashboard personalizado por tipo de usuario",
+          "Gestión de horarios con calendario interactivo",
+          "Sistema de calificaciones con estadísticas y gráficos",
+          "Mensajería interna entre estudiantes y profesores"
         ]
       },
       {
@@ -125,7 +132,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["React Native", "Firebase", "Chart.js"],
         fecha: "2024-08",
         github: "https://github.com/mariagonzalez/finanzas-app",
-        destacado: false
+        destacado: false,
+        caracteristicas: [
+          "Registro de gastos e ingresos con categorías personalizables",
+          "Gráficos interactivos de distribución de gastos",
+          "Creación de presupuestos mensuales con alertas",
+          "Sincronización en la nube con Firebase",
+          "Exportación de reportes en PDF"
+        ]
       },
       {
         id: 3,
@@ -140,7 +154,14 @@ export const estudiantes: Estudiante[] = [
         fecha: "2024-10",
         github: "https://github.com/mariagonzalez/ecommerce-local",
         demo: "https://ecommerce-local.vercel.app",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Catálogo de productos con filtros por categoría y ubicación",
+          "Sistema de pagos seguro integrado con Stripe",
+          "Reseñas y valoraciones de productos",
+          "Mapa interactivo para encontrar productores cercanos",
+          "Panel de vendedor para gestión de inventario"
+        ]
       }
     ]
   },
@@ -231,6 +252,29 @@ export const estudiantes: Estudiante[] = [
       { año: 2023, titulo: "Ayudante Curso Machine Learning", descripcion: "Prof. Roberto Mendoza · 60 estudiantes", fecha: "Agosto - Diciembre 2023", icon: "👨‍🏫", tipo: "academico" },
       { año: 2022, titulo: "Inicio Ingeniería en Informática", descripcion: "Universidad de Chile", fecha: "Marzo 2022", icon: "🎓", tipo: "academico" }
     ],
+    catedrasDestacadas: [
+      {
+        curso: "Machine Learning Avanzado",
+        profesor: "Prof. Roberto Fernández",
+        institucion: "Depto. Ciencias de la Computación, PUC",
+        distincion: "Nota: 7.0",
+        semestre: "2024-1"
+      },
+      {
+        curso: "Estadística Computacional",
+        profesor: "Prof. Carmen Valdés",
+        institucion: "Depto. Estadística, PUC",
+        distincion: "Top 3%",
+        semestre: "2023-2"
+      },
+      {
+        curso: "Deep Learning",
+        profesor: "Prof. Álvaro Soto",
+        institucion: "Depto. Ciencias de la Computación, PUC",
+        distincion: "Mejor proyecto final",
+        semestre: "2024-1"
+      }
+    ],
     links: {
       github: "https://github.com/carlosrojas",
       linkedin: "https://linkedin.com/in/carlosrojas",
@@ -249,7 +293,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
         fecha: "2024-06",
         github: "https://github.com/carlosrojas/predictor-desercion",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Análisis exploratorio de datos académicos de 5 años",
+          "Feature engineering con variables sociodemográficas",
+          "Comparación de modelos (Random Forest, XGBoost, SVM)",
+          "Dashboard de visualización para la dirección de pregrado",
+          "Documentación de metodología para replicabilidad"
+        ]
       },
       {
         id: 5,
@@ -260,7 +311,14 @@ export const estudiantes: Estudiante[] = [
         fecha: "2024-03",
         github: "https://github.com/carlosrojas/sentiment-analysis",
         demo: "https://sentiment-analysis-cl.streamlit.app",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Recolección de tweets en tiempo real via API",
+          "Preprocesamiento de texto y tokenización en español",
+          "Modelo de clasificación de sentimientos (positivo/negativo/neutro)",
+          "Dashboard interactivo con Streamlit",
+          "Visualización de tendencias y nubes de palabras"
+        ]
       }
     ]
   },
@@ -368,7 +426,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["Figma", "User Research", "Prototyping", "Usability Testing"],
         fecha: "2024-09",
         demo: "https://figma.com/proto/sofia-transporte",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Investigación de usuarios con entrevistas y encuestas",
+          "Análisis de pain points de la app actual",
+          "Wireframes de baja y alta fidelidad",
+          "Prototipo interactivo navegable en Figma",
+          "Tests de usabilidad con 50+ usuarios reales"
+        ]
       },
       {
         id: 7,
@@ -378,7 +443,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["Figma", "Design Systems", "Component Library", "Documentation"],
         fecha: "2024-07",
         demo: "https://figma.com/design-system-edtech",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Auditoría de UI existente y definición de tokens",
+          "Biblioteca de 40+ componentes reutilizables",
+          "Paleta de colores con contraste WCAG AA",
+          "Tipografía y sistema de espaciado consistente",
+          "Documentación de uso para desarrolladores"
+        ]
       }
     ]
   },
@@ -486,7 +558,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["Investigación", "Fotografía", "Multimedia", "Impacto Social"],
         fecha: "2024-09",
         demo: "https://revistauc.cl/reportaje-mineria-norte",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Investigación de campo durante 3 semanas en Antofagasta",
+          "Entrevistas en profundidad a 20+ habitantes de la zona",
+          "Análisis de datos ambientales públicos",
+          "Fotografía documental original",
+          "Formato multimedia con video, audio y texto"
+        ]
       },
       {
         id: 9,
@@ -500,7 +579,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["Video", "Documental", "Migración", "Educación"],
         fecha: "2024-06",
         demo: "https://vimeo.com/estudiantes-migrantes",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Guíeón documental con arco narrativo definido",
+          "Grabación y edición profesional de 12 minutos",
+          "5 testimonios de estudiantes de distintos países",
+          "Revisión de literatura académica sobre migración",
+          "Propuestas concretas de políticas públicas"
+        ]
       },
       {
         id: 10,
@@ -510,7 +596,14 @@ export const estudiantes: Estudiante[] = [
         tags: ["Fact-checking", "Política", "Datos"],
         fecha: "2024-10",
         demo: "https://factcheck-chile.com/elecciones2024",
-        destacado: false
+        destacado: false,
+        caracteristicas: [
+          "Monitoreo de debates y declaraciones públicas",
+          "Verificación con fuentes oficiales y bases de datos",
+          "Metodología transparente y replicable",
+          "Clasificación de veracidad (verdadero/falso/engañoso)",
+          "Publicación en tiempo real durante la campaña"
+        ]
       }
     ]
   },
@@ -617,7 +710,14 @@ export const estudiantes: Estudiante[] = [
         ],
         tags: ["Revit", "Diseño Sostenible", "Espacio Público", "Concurso"],
         fecha: "2024-08",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Levantamiento y análisis del contexto barrial",
+          "Programa arquitectónico participativo con vecinos",
+          "Diseño bioclimático con ventilación natural",
+          "Integración de materiales locales y reciclados",
+          "Planimetría completa y renders fotorrealistas"
+        ]
       },
       {
         id: 12,
@@ -630,7 +730,14 @@ export const estudiantes: Estudiante[] = [
         ],
         tags: ["Vivienda Social", "Diseño Modular", "Sustentabilidad"],
         fecha: "2024-05",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Sistema modular adaptable a crecimiento familiar",
+          "Análisis bioclimático para zonas norte, centro y sur",
+          "Prototipo físico a escala 1:10",
+          "Cálculo de reducción de costos vs. construcción tradicional",
+          "Manual de autoconstrucción asistida"
+        ]
       },
       {
         id: 13,
@@ -639,7 +746,14 @@ export const estudiantes: Estudiante[] = [
         imagenPortada: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=800",
         tags: ["Espacio Público", "Accesibilidad", "Participación Ciudadana"],
         fecha: "2024-03",
-        destacado: false
+        destacado: false,
+        caracteristicas: [
+          "Diagnóstico participativo con 3 cabildos vecinales",
+          "Diseño de espacios accesibles (rampas, señalética táctil)",
+          "Mobiliario urbano para distintas generaciones",
+          "Iluminación y paisajismo con especies nativas",
+          "Estudio de factibilidad y presupuesto estimado"
+        ]
       }
     ]
   },
@@ -729,6 +843,36 @@ export const estudiantes: Estudiante[] = [
       { año: 2023, titulo: "Voluntariado Clínica Jurídica", descripcion: "Asesoría a migrantes", fecha: "2023", icon: "🤝", tipo: "voluntariado" },
       { año: 2021, titulo: "Inicio Derecho", descripcion: "Universidad de Chile", fecha: "Marzo 2021", icon: "🎓", tipo: "academico" }
     ],
+    catedrasDestacadas: [
+      {
+        curso: "Derecho Procesal Penal",
+        profesor: "Prof. María Inés Horvitz",
+        institucion: "Facultad de Derecho, U. de Chile",
+        distincion: "Nota: 7.0",
+        semestre: "2024-1"
+      },
+      {
+        curso: "Derecho Constitucional II",
+        profesor: "Prof. Pablo Ruiz-Tagle",
+        institucion: "Facultad de Derecho, U. de Chile",
+        distincion: "Top 5%",
+        semestre: "2023-2"
+      },
+      {
+        curso: "Teoría del Derecho",
+        profesor: "Prof. Fernando Atria",
+        institucion: "Facultad de Derecho, U. de Chile",
+        distincion: "Mejor ensayo del curso",
+        semestre: "2022-2"
+      },
+      {
+        curso: "Derecho Laboral",
+        profesor: "Prof. Sergio Gamonal",
+        institucion: "Facultad de Derecho, U. de Chile",
+        distincion: "Nota: 6.8",
+        semestre: "2024-1"
+      }
+    ],
     links: {
       linkedin: "https://linkedin.com/in/diegoramirez",
       portfolio: "https://diegoramirez.legal"
@@ -745,7 +889,14 @@ export const estudiantes: Estudiante[] = [
         ],
         tags: ["Derecho Laboral", "Clínica Jurídica", "Pro Bono", "Litigación"],
         fecha: "2024-10",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Atención de 15+ casos de despido injustificado",
+          "Redacción de demandas y recursos administrativos",
+          "Representación en audiencias ante Inspección del Trabajo",
+          "Coordinación de equipo de 4 estudiantes",
+          "Seguimiento y cierre exitoso de casos"
+        ]
       },
       {
         id: 15,
@@ -754,7 +905,14 @@ export const estudiantes: Estudiante[] = [
         imagenPortada: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800",
         tags: ["Investigación", "Migración", "Publicación", "Derechos Humanos"],
         fecha: "2024-07",
-        destacado: true
+        destacado: true,
+        caracteristicas: [
+          "Revisión sistemática de legislación migratoria",
+          "Análisis comparado con normativa europea (UE)",
+          "Entrevistas a expertos y afectados",
+          "Propuestas concretas de reforma legal",
+          "Publicación en revista indexada"
+        ]
       },
       {
         id: 16,
@@ -763,7 +921,14 @@ export const estudiantes: Estudiante[] = [
         imagenPortada: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800",
         tags: ["Litigación", "Defensa Consumidor", "Juicio Colectivo"],
         fecha: "2024-04",
-        destacado: false
+        destacado: false,
+        caracteristicas: [
+          "Investigación de prácticas abusivas de la empresa",
+          "Redacción de demanda colectiva",
+          "Recopilación de pruebas de 200+ afectados",
+          "Alegatos en audiencias judiciales",
+          "Negociación de acuerdo de compensación"
+        ]
       }
     ]
   }

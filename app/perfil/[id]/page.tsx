@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { estudiantes } from '@/data/estudiantes'
 import { notFound } from 'next/navigation'
-import { Github, Linkedin, Globe, ExternalLink, Calendar, CheckCircle2, Briefcase, GraduationCap, MessageCircle, Users, Code, FolderGit2, Star, Filter } from 'lucide-react'
+import { Github, Linkedin, Globe, ExternalLink, Calendar, CheckCircle2, Briefcase, GraduationCap, MessageCircle, Users, Code, FolderGit2, Star, Filter, Award, MapPin, BookOpen } from 'lucide-react'
 import { EstudianteStatus } from '@/types/estudiante'
+import TrayectoriaCompacta from '@/components/TrayectoriaCompacta'
+import AcademicCourseCard from '@/components/AcademicCourseCard'
 
 // Helper function for status display
 const getStatusConfig = (status?: EstudianteStatus) => {
@@ -15,8 +17,23 @@ const getStatusConfig = (status?: EstudianteStatus) => {
   return status ? configs[status] : configs.disponible
 }
 
+// Helper function to get location based on university
+const getUniversityLocation = (universidad: string): string => {
+  const locations: Record<string, string> = {
+    'Universidad de Chile': 'Santiago, Chile',
+    'Pontificia Universidad Católica': 'Santiago, Chile',
+    'Universidad Diego Portales': 'Santiago, Chile',
+    'Universidad de Concepción': 'Concepción, Chile',
+    'Universidad Técnica Federico Santa María': 'Valparaíso, Chile',
+    'Universidad Adolfo Ibáñez': 'Santiago, Chile',
+    'Universidad de los Andes': 'Santiago, Chile',
+    'Universidad de Valparaíso': 'Valparaíso, Chile',
+  }
+  return locations[universidad] || 'Chile'
+}
+
 // Valid tab types
-type TabType = 'overview' | 'proyectos' | 'trayectoria' | 'contacto'
+type TabType = 'overview' | 'proyectos' | 'credenciales' | 'contacto'
 
 export default async function PerfilPage({
   params,
@@ -119,8 +136,14 @@ export default async function PerfilPage({
                   </div>
 
                   {/* Career, University, Year */}
-                  <p className="text-gray-600 font-medium mb-4">
+                  <p className="text-gray-600 font-medium mb-1">
                     {estudiante.carrera} · {estudiante.universidad} · {estudiante.año}° año
+                  </p>
+
+                  {/* Location */}
+                  <p className="text-gray-500 text-sm flex items-center gap-1.5 mb-4">
+                    <MapPin size={14} className="text-purple-500" />
+                    {getUniversityLocation(estudiante.universidad)}
                   </p>
 
                   {/* Stats Row */}
@@ -212,13 +235,13 @@ export default async function PerfilPage({
               Proyectos ({estudiante.proyectos.length})
             </Link>
             <Link
-              href={`/perfil/${id}?tab=trayectoria`}
-              className={`px-4 py-4 font-medium whitespace-nowrap transition-colors ${activeTab === 'trayectoria'
+              href={`/perfil/${id}?tab=credenciales`}
+              className={`px-4 py-4 font-medium whitespace-nowrap transition-colors ${activeTab === 'credenciales'
                 ? 'text-purple-600 border-b-2 border-purple-600 font-semibold'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
             >
-              Trayectoria
+              Credenciales
             </Link>
             <Link
               href={`/perfil/${id}?tab=contacto`}
@@ -386,6 +409,40 @@ export default async function PerfilPage({
                 )}
               </section>
 
+              {/* 🏆 Vitrina - Testimonios (movido aquí desde sidebar) */}
+              {estudiante.vitrina?.testimonios && estudiante.vitrina.testimonios.length > 0 && (
+                <section className="bg-gradient-to-br from-purple-50 via-white to-pink-50 rounded-xl shadow-sm border border-purple-100 p-6">
+                  <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span className="text-2xl">🏆</span>
+                    Vitrina
+                    <span className="text-sm font-normal text-gray-500 ml-2">— Lo que dicen de mí</span>
+                  </h2>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {estudiante.vitrina.testimonios.map((testimonio, idx) => (
+                      <div
+                        key={idx}
+                        className="relative bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                      >
+                        <div className="absolute -top-2 -left-2 text-3xl opacity-20">"</div>
+                        <p className="text-gray-700 italic leading-relaxed mb-4 relative z-10">
+                          "{testimonio.comentario}"
+                        </p>
+                        <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-bold text-sm">
+                            {testimonio.autor.charAt(0)}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900">{testimonio.autor}</p>
+                            <p className="text-xs text-gray-500">{testimonio.cargo}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
               {/* 💡 Intereses */}
               <section className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                 <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -411,68 +468,10 @@ export default async function PerfilPage({
             <aside className="lg:col-span-4">
               <div className="sticky top-[140px] space-y-6">
 
-                {/* 🏆 Vitrina - Testimonios */}
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                  <h3 className="font-bold text-lg mb-5 flex items-center gap-2">
-                    <span className="text-yellow-500">🏆</span>
-                    Vitrina
-                  </h3>
-
-                  <div className="space-y-5">
-                    {estudiante.vitrina?.testimonios?.map((testimonio, idx) => (
-                      <div
-                        key={idx}
-                        className="relative pl-4 border-l-2 border-purple-300"
-                      >
-                        <p className="text-sm text-gray-700 italic leading-relaxed mb-3">
-                          "{testimonio.comentario}"
-                        </p>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-900">
-                            {testimonio.autor}
-                          </p>
-                          <p className="text-xs text-gray-500">
-                            {testimonio.cargo}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 🎖️ Reconocimientos */}
-                {estudiante.vitrina?.reconocimientos &&
-                  estudiante.vitrina.reconocimientos.length > 0 && (
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                      <h3 className="font-bold text-lg mb-5 flex items-center gap-2">
-                        <span className="text-purple-600">🎖️</span>
-                        Reconocimientos
-                      </h3>
-                      <div className="space-y-4">
-                        {estudiante.vitrina.reconocimientos.map((rec, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-start gap-3"
-                          >
-                            <span className="text-xl flex-shrink-0">{rec.icon}</span>
-                            <div>
-                              <p className="font-medium text-gray-900">
-                                {rec.titulo}
-                              </p>
-                              {rec.descripcion && (
-                                <p className="text-sm text-gray-500">
-                                  {rec.descripcion}
-                                </p>
-                              )}
-                              <p className="text-xs text-gray-400 mt-1">
-                                {rec.fecha}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                {/* 📈 Trayectoria Compacta con expand/collapse */}
+                {estudiante.trayectoria && estudiante.trayectoria.length > 0 && (
+                  <TrayectoriaCompacta trayectoria={estudiante.trayectoria} initialCount={4} />
+                )}
 
               </div>
             </aside>
@@ -600,61 +599,163 @@ export default async function PerfilPage({
         </div>
       )}
 
-      {/* TRAYECTORIA TAB */}
-      {activeTab === 'trayectoria' && (
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
-          {estudiante.trayectoria && estudiante.trayectoria.length > 0 ? (
-            <div className="relative pl-4 md:pl-0">
-              {/* Vertical Line */}
-              <div className="absolute left-12 md:left-24 top-2 bottom-0 w-0.5 bg-gray-200"></div>
+      {/* CREDENCIALES TAB - Sala de Trofeos */}
+      {activeTab === 'credenciales' && (
+        <div className="container mx-auto px-4 py-8">
 
-              {/* Group by Year */}
-              {[...new Set(estudiante.trayectoria.map(t => t.año))].sort((a, b) => b - a).map(year => (
-                <div key={year} className="mb-12 relative">
-                  {/* Year Label */}
-                  <div className="flex items-center mb-8">
-                    <div className="w-20 md:w-32 text-left md:text-right pr-4 font-bold text-2xl text-purple-600 bg-gray-50 md:bg-transparent py-1 md:py-0 rounded-lg z-10">{year}</div>
+          {/* Header de la sección */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">🏆 Sala de Trofeos</h2>
+            <p className="text-gray-600">Premios, reconocimientos y certificaciones verificadas</p>
+          </div>
+
+          {/* Sección Superior: Premios y Reconocimientos - Grid 2 columnas */}
+          <section className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                <Award size={22} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900">Premios y Reconocimientos</h3>
+            </div>
+
+            {estudiante.vitrina?.reconocimientos && estudiante.vitrina.reconocimientos.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {estudiante.vitrina.reconocimientos.map((rec, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-gradient-to-br from-yellow-50 via-white to-orange-50 rounded-2xl border border-yellow-200 p-6 hover:shadow-lg transition-all hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-2xl shadow-lg">
+                        {rec.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900 text-lg mb-1">{rec.titulo}</h4>
+                        {rec.descripcion && (
+                          <p className="text-gray-600 text-sm mb-2">{rec.descripcion}</p>
+                        )}
+                        <div className="flex items-center gap-2">
+                          <Calendar size={14} className="text-gray-400" />
+                          <span className="text-sm text-gray-500">{rec.fecha}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                ))}
 
-                  {/* Items for this year */}
-                  <div className="space-y-8 pl-16 md:pl-32">
-                    {estudiante.trayectoria
-                      ?.filter(t => t.año === year)
-                      .map((hito, idx) => (
-                        <div key={idx} className="relative group">
-                          {/* Dot on line */}
-                          <div className="absolute -left-[1.35rem] md:-left-[2.35rem] top-6 w-4 h-4 rounded-full bg-white border-4 border-purple-200 group-hover:border-purple-500 transition-colors z-10"></div>
-
-                          {/* Content Card */}
-                          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all hover:-translate-y-1">
-                            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                              <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-2xl flex-shrink-0">
-                                {hito.icon}
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                                  <h3 className="font-bold text-lg text-gray-900">{hito.titulo}</h3>
-                                  <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full w-fit">
-                                    {hito.fecha}
-                                  </span>
-                                </div>
-                                <p className="text-gray-600 leading-relaxed">{hito.descripcion}</p>
-                              </div>
-                            </div>
+                {/* Agregar premios de trayectoria tipo 'logro' que no estén en reconocimientos */}
+                {estudiante.trayectoria
+                  ?.filter(h => h.tipo === 'logro' && !estudiante.vitrina?.reconocimientos?.some(r => r.titulo === h.titulo))
+                  .map((logro, idx) => (
+                    <div
+                      key={`tray-${idx}`}
+                      className="bg-gradient-to-br from-purple-50 via-white to-pink-50 rounded-2xl border border-purple-200 p-6 hover:shadow-lg transition-all hover:-translate-y-1"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">
+                          {logro.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-gray-900 text-lg mb-1">{logro.titulo}</h4>
+                          <p className="text-gray-600 text-sm mb-2">{logro.descripcion}</p>
+                          <div className="flex items-center gap-2">
+                            <Calendar size={14} className="text-gray-400" />
+                            <span className="text-sm text-gray-500">{logro.fecha}</span>
                           </div>
                         </div>
-                      ))}
-                  </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                <span className="text-4xl mb-4 block">🏅</span>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Sin premios registrados</h4>
+                <p className="text-gray-500">Los reconocimientos aparecerán aquí</p>
+              </div>
+            )}
+          </section>
+
+          {/* Sección Inferior: Certificaciones y Cursos - Grid 3 columnas */}
+          <section>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                <GraduationCap size={22} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900">Certificaciones y Cursos</h3>
+            </div>
+
+            {(() => {
+              // Filtrar certificaciones válidas (excluyendo "Inicio..." y items laborales)
+              const certificaciones = estudiante.trayectoria?.filter(h =>
+                h.tipo === 'academico' &&
+                !h.titulo.toLowerCase().startsWith('inicio') &&
+                !h.titulo.toLowerCase().includes('ayudante')
+              ) || []
+
+              // Agregar intercambios como formación
+              const intercambios = estudiante.trayectoria?.filter(h => h.tipo === 'intercambio') || []
+
+              const allCerts = [...certificaciones, ...intercambios]
+
+              return allCerts.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {allCerts.map((cert, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-purple-200 transition-all group"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center text-xl group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors">
+                          {cert.icon}
+                        </div>
+                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${cert.tipo === 'intercambio'
+                          ? 'bg-purple-100 text-purple-700'
+                          : 'bg-blue-100 text-blue-700'
+                          }`}>
+                          {cert.tipo === 'intercambio' ? '🌍 Intercambio' : '📜 Certificación'}
+                        </span>
+                      </div>
+                      <h4 className="font-semibold text-gray-900 mb-1 line-clamp-2">{cert.titulo}</h4>
+                      <p className="text-sm text-gray-500 mb-2 line-clamp-2">{cert.descripcion}</p>
+                      <div className="flex items-center gap-1 text-xs text-gray-400">
+                        <Calendar size={12} />
+                        <span>{cert.fecha}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16 bg-white rounded-xl border border-dashed border-gray-300">
-              <span className="text-4xl mb-4 block">📝</span>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Trayectoria no disponible</h3>
-              <p className="text-gray-500">Aún no se ha cargado la información de trayectoria para este estudiante.</p>
-            </div>
+              ) : (
+                <div className="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                  <span className="text-4xl mb-4 block">🎓</span>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Sin certificaciones registradas</h4>
+                  <p className="text-gray-500">Las certificaciones y cursos aparecerán aquí</p>
+                </div>
+              )
+            })()}
+          </section>
+
+          {/* Sección 3: Cátedras Destacadas - Grid 2 columnas */}
+          {estudiante.catedrasDestacadas && estudiante.catedrasDestacadas.length > 0 && (
+            <section className="mt-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                  <BookOpen size={22} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Cátedras Destacadas</h3>
+                  <p className="text-sm text-gray-500">Cursos con profesores de referencia en la disciplina</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {estudiante.catedrasDestacadas.map((catedra, idx) => (
+                  <AcademicCourseCard key={idx} catedra={catedra} />
+                ))}
+              </div>
+            </section>
           )}
+
         </div>
       )}
 

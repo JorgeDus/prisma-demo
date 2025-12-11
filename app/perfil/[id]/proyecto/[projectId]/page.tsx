@@ -34,12 +34,11 @@ export default function ProyectoExpandidoPage() {
     // Gallery images - use galeria if available, otherwise just the cover
     const galleryImages = proyecto.galeria?.length ? proyecto.galeria : [proyecto.imagenPortada]
 
-    // Project features (parse from description or use placeholder)
-    const features = [
-        'Sistema de autenticación con roles',
-        'Dashboard personalizado por tipo de usuario',
-        'Notificaciones en tiempo real',
-        'API RESTful documentada'
+    // Project features - use caracteristicas from data, fallback to extracting from description
+    const features = proyecto.caracteristicas || [
+        'Desarrollo completo del proyecto',
+        'Documentación técnica',
+        'Presentación de resultados'
     ]
 
     return (
@@ -85,8 +84,8 @@ export default function ProyectoExpandidoPage() {
                                 key={idx}
                                 onClick={() => setActiveImage(idx)}
                                 className={`flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden border-2 transition-all ${activeImage === idx
-                                        ? 'border-purple-500 ring-2 ring-purple-200'
-                                        : 'border-gray-200 hover:border-gray-300'
+                                    ? 'border-purple-500 ring-2 ring-purple-200'
+                                    : 'border-gray-200 hover:border-gray-300'
                                     }`}
                             >
                                 <img
